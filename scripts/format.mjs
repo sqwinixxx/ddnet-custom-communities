@@ -13,9 +13,9 @@ function CDToRoot() {
 	process.chdir("..");
 }
 
-function exec(...args) {
+function exec(what) {
 	return new Promise(resolve => {
-		const child = spawn(args[0], args.slice(1), { stdio: "inherit", shell: false });
+		const child = spawn(what, { stdio: "inherit", shell: true });
 		child.on("close", resolve);
 	});
 }
@@ -65,11 +65,11 @@ async function CIErrorFixable(msg, fix) {
 }
 
 // Verify schema
-const verifyResult = await exec(
-	"npx", "--yes",
-	"ajv-cli", "validate", "-s", "scripts/schema.json", "-d", "custom-communities-ddnet-info.json",
-	"--all-errors", "--changes=js", "--errors=js",
-);
+const verifyResult = await exec(`
+	npx --yes \
+	ajv-cli validate -s scripts/schema.json -d custom-communities-ddnet-info.json \
+	--all-errors --changes=js --errors=js
+`);
 if (verifyResult !== 0)
 	CIFailed = true;
 
