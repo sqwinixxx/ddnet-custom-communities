@@ -24,5 +24,5 @@ Do note that these rules can be bent both ways and are subject to mine and other
 ## How to add your own community 
 
 1. Meet requirements
-2. Create a PR with your icon and servers added to the JSON
+2. Create a PR with your icon and servers added to the end of the JSON
 3. Win
