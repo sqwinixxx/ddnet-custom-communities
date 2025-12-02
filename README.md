@@ -37,8 +37,10 @@ Sorted by order of addition. Maintainers are responsible for updating the data h
 
 Do note that these rules can be bent both ways and are subject to mine and others' judgement
 
-## How to add your own community 
+## How to add your own community
 
 1. Meet requirements
-2. Create a PR with your icon and servers added to the end of the JSON
-3. Win
+2. Add icon to `icons`
+3. Add data to `custom-communities-ddnet-info.json`
+4. Add community to `README.md`
+5. Create a PR
